@@ -1,0 +1,52 @@
+<app-breadcrumb [title]="'Basic'" [items]="['Tables', 'Data Tables']" [active_item]="'Basic'"></app-breadcrumb>
+<!-- Container-fluid starts -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <h5>Basic Table</h5>
+        </div>
+        <div class="card-body custom-datatable noscroll">
+          <div class="custom-datatable table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                    <th scope="col" sortable="name" >Images</th>
+                    <th scope="col" sortable="startDate">Nom</th>
+                    <th scope="col" sortable="invoice" >Type</th>
+                    <th scope="col" sortable="position" >Quantité</th>
+                    <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let equipement of Equipements">
+                    <td> <img class="img-40 me-2" src="data:image/jpeg;base64,{{ equipement.images }}" alt="" /></td>
+                    <td>{{equipement.name}}</td>
+                    <td>{{equipement.type}}</td>
+                    <td>{{equipement.quantity}}</td>
+                    <td> <div class="action">
+                        <li class="edit">
+                          <a  [routerLink]="['/dashboard/equipement/update', equipement.equipement_id]"><i class="icon-pencil-alt"></i></a>
+                        </li>
+                        <li class="delete">
+                          <a href="#"><i class="icon-trash"></i></a>
+                        </li>
+                      </div></td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="d-flex justify-content-between mt-3">
+              <select class="form-select" style="width: auto" name="pageSize">
+                <option [ngValue]="2">2 items per page</option>
+                <option [ngValue]="4">4 items per page</option>
+                <option [ngValue]="6">6 items per page</option>
+              </select>
+              <!-- <ngb-pagination class="ms-3" [collectionSize]="(total$ | async)!" [(page)]="service.page" [pageSize]="service.pageSize"> </ngb-pagination> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

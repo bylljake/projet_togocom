@@ -1,0 +1,71 @@
+<app-breadcrumb [title]="'Equipement'" [items]="['Ajouter']" [active_item]="'Equipement'"></app-breadcrumb>
+<div class="container-fluid base-inputs">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <!-- <h5 *ngIf="site.site_id">Nom du site selectionné: <b class="text-warning">{{site.name}}</b></h5> -->
+                </div>
+                <form class="form theme-form" [formGroup]="formEquipement" (ngSubmit)="submitSite()">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 d-flex align-items-center justify-content-center ">
+                                <input type="file" accept="image/*" *ngIf="showInput">
+                                <input #fileInput type="file" accept="image/*" (change)="onFileSelected($event)"  multiple style="display: none;" />
+            
+                                <div class="mr-3 mt-3">
+                                  <div class="card  text-center d-flex align-items-center justify-content-center" style="width: 280px; height: 210px;">
+                                    <div>
+            
+                                      <div class="" (click)="fileInput.click()" *ngIf="!imageSelected && equipementId === 0">
+                                        <i class=" fa fa-image text-dark" aria-hidden="true" style="font-size: 5rem;"></i>
+                                      </div>
+                                      <span *ngIf="!imageSelected &&  equipementId === 0" style="font-size: 1.6rem;" class="text-dark">Choisir l'image</span>
+                                      <img *ngIf="imageUrl" [src]="imageUrl" (click)="fileInput.click()" class="" style="width: 230px; height: 180px;" alt="Selected Image">
+                                    </div>
+                                  </div>
+                                </div>
+              
+                              </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div class="mb-3">
+                                    <label for="">Nom</label>
+                                    <input class="form-control" id="" type="text" placeholder="" formControlName="name"/>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword2">Type</label>
+                                    <input class="form-control" id="" type="text" placeholder="" formControlName="type"/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="">Quantité</label>
+                                    <input class="form-control" id="" type="number" placeholder="" formControlName="quantity"/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="">description</label>
+                                    <input class="form-control" id="" type="text" placeholder="" formControlName="description"/>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card-footer text-end">
+                        <div class="col-sm-9 offset-sm-3">
+                            <button class="btn btn-success " type="submit">Enregistrer</button>
+                            <input class="btn btn-light" type="reset" value="Anuller" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

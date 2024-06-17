@@ -1,0 +1,70 @@
+<app-breadcrumb [title]="'Sites'" [items]="['dashboard','sites']" [active_item]="'list'"></app-breadcrumb>
+<!-- Container-fluid starts -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between">
+          <h5>Liste des sites</h5>
+        <div class="">
+          <div class="d-flex justify-content-center justify-content-md-end mr-3">
+              <button class="btn btn-outline-success" data-toggle="tooltip" data-placement="top" title="Equipement"
+                 ><i class=" fa fa-server"
+                      aria-hidden="true"></i></button>
+              <button class="btn btn-outline-danger mx-2"data-toggle="tooltip" data-placement="top" title="Energie"><i
+                      class=" fa  fa-tags" aria-hidden="true"></i></button>
+              <button class="btn btn-outline-warning me-2 "
+              data-toggle="tooltip" data-placement="top" title="Tooltip on top"
+                 ><i class=" fa fa-share"
+                      aria-hidden="true"></i></button>
+              <button class="btn btn-outline-info" data-toggle="tooltip" data-placement="top" title="Tooltip on top"><i
+                      class=" fa fa-info-circle" aria-hidden="true"></i></button>
+          </div></div>
+        </div>
+        <div class="card-body custom-datatable noscroll">
+          <div class="custom-datatable table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                    <th scope="col" sortable="name" >Images</th>
+                    <th scope="col" sortable="startDate">Nom du site</th>
+                    <th scope="col" sortable="invoice" >Localisation</th>
+                    <th scope="col" sortable="position" >Superficie</th>
+                    <th scope="col" sortable="credit" >Date creation</th>
+                    <th scope="col" sortable="office" >Dte mise en service</th>
+                    <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let sites of Sites" (click)="viewDetails(sites)">
+                    <td> <img class="img-40 me-2" src="data:image/jpeg;base64,{{ sites.images }}" alt="" /></td>
+                    <td>{{sites.name}}</td>
+                    <td>{{sites.location}}</td>
+                    <td>{{sites.superficie}}</td>
+                    <td>{{sites.date_of_create}}</td>
+                    <td>{{sites.date_of_service}}</td>
+                    <td> <div class="action">
+                        <li class="edit">
+                          <a  [routerLink]="['/dashboard/sites/update', sites.site_id]"><i class="icon-pencil-alt"></i></a>
+                        </li>
+                        <li class="delete">
+                          <a href="#"><i class="icon-trash"></i></a>
+                        </li>
+                      </div></td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="d-flex justify-content-between mt-3">
+              <select class="form-select" style="width: auto" name="pageSize">
+                <option [ngValue]="2">2 items per page</option>
+                <option [ngValue]="4">4 items per page</option>
+                <option [ngValue]="6">6 items per page</option>
+              </select>
+              <!-- <ngb-pagination class="ms-3" [collectionSize]="(total$ | async)!" [(page)]="service.page" [pageSize]="service.pageSize"> </ngb-pagination> -->
+            </div>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>

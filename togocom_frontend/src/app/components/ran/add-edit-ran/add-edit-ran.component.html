@@ -1,0 +1,143 @@
+<app-breadcrumb [title]="'Basic'" [items]="['Tables', 'Data Tables']" [active_item]="'Basic'"></app-breadcrumb>
+<div class="container-fluid base-inputs">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Ajouter Ran</h5>
+                </div>
+                <form class="form theme-form">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-5 d-flex align-items-center justify-content-center ">
+                                <input type="file" accept="image/*" *ngIf="showInput">
+                                <input #fileInput type="file" accept="image/*" (change)="onFileSelected($event)"
+                                    multiple style="display: none;" />
+
+                                <div class="mr-3 mt-3">
+                                    <div class="card  text-center d-flex align-items-center justify-content-center"
+                                        style="width: 280px; height: 210px;">
+                                        <div>
+
+                                            <div class="" (click)="fileInput.click()" *ngIf="!imageSelected">
+                                                <i class="icon-copy fa fa-image text-dark" aria-hidden="true"
+                                                    style="font-size: 5rem;"></i>
+                                            </div>
+                                            <span *ngIf="!imageSelected " style="font-size: 1.6rem;"
+                                                class="text-dark">Choisir l'image</span>
+                                            <img *ngIf="imageUrl" [src]="imageUrl" (click)="fileInput.click()" class=""
+                                                style="width: 230px; height: 180px;" alt="Selected Image">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-7">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="">Type de Pylone</label>
+                                            <input class="form-control" id="" type="text"
+                                                placeholder=""  />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="">Hauteur du pylone</label>
+                                            <input class="form-control" id="" type="text"
+                                                placeholder=""  />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label for="">Quantité</label>
+                                            <input class="form-control" id="" placeholder="" type="number"
+                                               />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="">Type de RFM</label>
+                                        <input class="form-control" id="" type="text"
+                                            placeholder="" />
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="exampleInputPassword2">Quantité de RFM</label>
+                                        <input class="form-control" id="" type="text"
+                                            placeholder="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="">Type de distributeur</label>
+                                        <input class="form-control" id="" type="text"
+                                            placeholder="" />
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="exampleInputPassword2">Quantité du distributeur</label>
+                                        <input class="form-control" id="" type="text"
+                                            placeholder="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="">Quantité d'ASIB</label>
+                                        <input class="form-control" id="" type="text"
+                                            placeholder="" />
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="exampleInputPassword2">Quantité d'ABIA</label>
+                                        <input class="form-control" id="" type="text"
+                                            placeholder="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="">Quantité d'FSMF</label>
+                                        <input class="form-control" id="" type="text"
+                                            placeholder="" />
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="exampleInputPassword2">Quantité d'FBB</label>
+                                        <input class="form-control" id="" type="text"
+                                            placeholder="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <div class="card-footer text-end">
+                        <div class="col-sm-9 offset-sm-3">
+                            <button class="btn btn-success " type="submit">Enregistrer</button>
+                            <input class="btn btn-light" type="reset" value="Anuller" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
